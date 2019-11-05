@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>isCompleted</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for Event in EventsTable %}
+        <tr>
+            <td>{{Event.date}}</td>
+            <td>{{Event.title}}</td>
+            <td>{{Event.description}}</td>
+            <td>{{Event.isCompleted}}</td>
+            <td><a href="/delete_event/{{Event.eventID}}"><button type="button" class="btn btn-primary">delete</button></a></td>
+            <td><a href="/edit_event/{{Event.eventID}}"><button type="button" class="btn btn-primary">edit</button></a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="/add_event"><button type="button" class="btn btn-primary">Add</button></a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="/viewAll"><button type="button" class="btn btn-primary">View all</button></a></td>
+            <td><a href="/viewCompleted"><button type="button" class="btn btn-primary">View completed</button></a></td>
+            <td><a href="/viewUncompleted"><button type="button" class="btn btn-primary">View uncompleted</button></a></td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
