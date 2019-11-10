@@ -17,6 +17,7 @@
 
     <tbody>
         {% for Event in EventsTable %}
+        {% if not Event.isCompleted %}
         <tr>
             <td>{{Event.date}}</td>
             <td>{{Event.title}}</td>
@@ -31,6 +32,7 @@
             <td><a href="/delete_event/{{Event.eventID}}"><button type="button" class="btn btn-primary">delete</button></a></td>
             <td><a href="/edit_event/{{Event.eventID}}"><button type="button" class="btn btn-primary">edit</button></a></td>
         </tr>
+        {% endif %}
         {% endfor %}
         <tr>
             <td>...</td>

@@ -7,7 +7,6 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from .models import Events
 
 class EventsForm(Form):
-    date=DateTimeField('date', validators=[DataRequired()])
+    date=DateField('date', validators=[DataRequired()])
     title=StringField('title', validators=[DataRequired()])
     description=StringField('description', validators=[DataRequired()])
-    isCompleted=BooleanField('isCompleted')
